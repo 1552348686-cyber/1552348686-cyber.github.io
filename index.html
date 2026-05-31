@@ -95,11 +95,67 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 8rem 4rem 4rem;
+    gap: 2rem;
   }
 
   .hero-inner {
-    max-width: 900px;
+    max-width: 560px;
+    flex-shrink: 0;
+  }
+
+  .hero-name-display {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+  }
+
+  .hero-name-display .name-zh {
+    font-family: var(--display);
+    font-size: clamp(4rem, 8vw, 9rem);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    -webkit-text-stroke: 1.5px rgba(0,229,255,0.5);
+    color: transparent;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s;
+  }
+
+  .hero-name-display:hover .name-zh {
+    -webkit-text-stroke: 1.5px var(--accent);
+    text-shadow: 0 0 60px rgba(0,229,255,0.25);
+  }
+
+  .hero-name-display .name-en {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0.7;
+  }
+
+  .hero-name-display::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    top: 10%;
+    bottom: 10%;
+    left: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,229,255,0.2), transparent);
   }
 
   .hero-tag {
@@ -681,6 +737,10 @@
       <a href="#demo" class="btn-primary">↓ 体验 AI Demo</a>
       <a href="#projects" class="btn-ghost">查看项目案例</a>
     </div>
+  </div>
+  <div class="hero-name-display">
+    <span class="name-zh">林皓轩</span>
+    <span class="name-en">Lin Haoxuan</span>
   </div>
 </section>
 
